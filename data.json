@@ -1,0 +1,113 @@
+{
+    "router":
+    [
+    {
+        "name" : "R1",
+        "AS_id" : "111",
+        "AS_protocol": "RIP",
+        "neighbors" : 
+        [
+        {
+            "name_neighbor": "R2",
+            "interface": "GigabitEthernet1/0",
+            "IP": "2001:0:111:12::1",
+            "AS_id_neighbor": "111"
+        }
+        ]
+    },
+    {
+        "name" : "R2",
+        "AS_id" : "111",
+        "AS_protocol": "RIP",
+        "neighbors" : 
+        [
+        {
+            "name_neighbor": "R1",
+            "interface": "GigabitEthernet1/0",
+            "IP": "2001:0:111:12::2",
+            "AS_id_neighbor": "111"
+        },
+        {
+            "name_neighbor": "R3",
+            "interface": "GigabitEthernet2/0",
+            "IP": "2001:0:111:23::1",
+            "AS_id_neighbor": "111"
+        }
+        ]
+    },
+    {
+        "name" : "R3",
+        "AS_id" : "111",
+        "AS_protocol": "RIP",
+        "neighbors" : 
+        [
+        {
+            "name_neighbor": "R2",
+            "interface": "GigabitEthernet2/0",
+            "IP": "2001:0:111:23::2",
+            "AS_id_neighbor": "111"
+        },
+        {
+            "name_neighbor": "R4",
+            "interface": "GigabitEthernet1/0",
+            "IP": "2001:111:112:34::2",
+            "AS_id_neighbor": "112"
+        }
+        ]
+    },
+    {
+        "name" : "R4",
+        "AS_id" : "112",
+        "AS_protocol": "OSPF",
+        "neighbors" : 
+        [
+        {
+            "name_neighbor": "R3",
+            "interface": "GigabitEthernet1/0",
+            "IP": "2001:111:112:34::1",
+            "AS_id_neighbor": "111"
+        },
+        {
+            "name_neighbor": "R5",
+            "interface": "GigabitEthernet2/0",
+            "IP": "2001:0:112:45::1",
+            "AS_id_neighbor": "112"
+        }
+        ]
+    },
+    {
+        "name" : "R5",
+        "AS_id" : "112",
+        "AS_protocol": "OSPF",
+        "neighbors" : 
+        [
+        {
+            "name_neighbor": "R4",
+            "interface": "GigabitEthernet2/0",
+            "IP": "2001:0:112:45::2",
+            "AS_id_neighbor": "112"
+        },
+        {
+            "name_neighbor": "R6",
+            "interface": "GigabitEthernet1/0",
+            "IP": "2001:0:112:56::2",
+            "AS_id_neighbor": "112"
+        }
+        ]
+    },
+    {
+        "name" : "R6",
+        "AS_id" : "112",
+        "AS_protocol": "OSPF",
+        "neighbors" : 
+        [
+        {
+            "name_neighbor": "R5",
+            "interface": "GigabitEthernet1/0",
+            "IP": "2001:0:112:56::1",
+            "AS_id_neighbor": "112"
+        }
+        ]
+    }
+    ]
+}
