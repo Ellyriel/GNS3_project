@@ -5,6 +5,7 @@
         "name" : "R1",
         "AS_id" : "111",
         "AS_protocol": "RIP",
+        "Loopback": "2001:0:0:1::1",
         "neighbors" : 
         [
         {
@@ -19,6 +20,7 @@
         "name" : "R2",
         "AS_id" : "111",
         "AS_protocol": "RIP",
+        "Loopback": "2001:0:0:2::1",
         "neighbors" : 
         [
         {
@@ -39,6 +41,7 @@
         "name" : "R3",
         "AS_id" : "111",
         "AS_protocol": "RIP",
+        "Loopback": "2001:0:0:3::1",
         "neighbors" : 
         [
         {
@@ -59,6 +62,7 @@
         "name" : "R4",
         "AS_id" : "112",
         "AS_protocol": "OSPF",
+        "Loopback": "2001:0:0:4::1",
         "neighbors" : 
         [
         {
@@ -79,6 +83,7 @@
         "name" : "R5",
         "AS_id" : "112",
         "AS_protocol": "OSPF",
+        "Loopback": "2001:0:0:5::1",
         "neighbors" : 
         [
         {
@@ -99,6 +104,7 @@
         "name" : "R6",
         "AS_id" : "112",
         "AS_protocol": "OSPF",
+        "Loopback": "2001:0:0:6::1",
         "neighbors" : 
         [
         {
