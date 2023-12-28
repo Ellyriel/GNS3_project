@@ -1,13 +1,5 @@
 import datetime
 
-def creation_fichier(hostname):
-    name = "config_"+ hostname + ".cfg"
-    f = open(name,"w")
-    return f
-
-def ecriture_fichier(file,text):
-    file.write(text)
-
 def recuperer_date():
     x = datetime.datetime.now()
     date = x.strftime("%H:%M:%S UTC %a %b %d %Y")
