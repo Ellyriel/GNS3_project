@@ -30,6 +30,12 @@ def ecriture_debut(hostname, ip_version):
 
     if ip_version == 6 :
         texte = "no ip domain lookup\nipv6 unicast-routing\nipv6 cef\n"
+    elif ip_version == 4 :
+        texte = "JE NE SAIS PAS POUR LE MOMENT, A RECHERCHER\n"
+    else :
+        print("ERROR : improper IP version")
+        return
+    
     fichier_config.write(texte + "!\n"*2)
 
     texte = "multilink bundle-name authenticated\n"
