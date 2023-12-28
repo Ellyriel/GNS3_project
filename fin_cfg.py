@@ -1,5 +1,11 @@
 
 def creation_texte_fin(hostname, id, as_rp, ip_version):
+    '''
+    fonction qui crée le texte de la fin du fichier de configuration
+    paramètres : hostname du routeur, id du routeur, as_rp du routeur, version de IP
+    renvoi : texte
+    '''
+
     texte = ""
     texte += "ip forward-protocol nd\n" + "!\n"*2
     texte += "no ip http server\nno ip http secure-server\n!\n"
@@ -24,3 +30,29 @@ def creation_texte_fin(hostname, id, as_rp, ip_version):
     texte += "end\n"
 
     return texte
+
+
+
+
+
+
+
+# A DEPLACER DANS LE FICHIER PRINCIPAL PLUS TARD
+'''
+import fin_cfg
+
+def creation_fichier(hostname):
+    name = "config_"+ hostname + ".cfg"
+    f = open(name,"w")
+    return f
+
+def ecriture_fichier(file,text):
+    file.write(text)
+
+for router in list_routers:
+
+    #fonctions intermédiaires
+
+    texte_config = fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version)
+    ecriture_fichier(fichier_config, texte_config)
+'''
