@@ -6,6 +6,7 @@
             "hostname" : "R1",
             "id" : "1.1.1.1",
             "AS" : "111",
+            "AS_RP" : "RIP",
             "neighbors":["R2"],
             "interfaces" : 
             [
@@ -39,6 +40,7 @@
             "hostname" : "R2",
             "id" : "2.2.2.2",
             "AS" : "111",
+            "AS_RP" : "RIP",
             "neighbors":["R1","R3"],
             "interfaces" : 
             [
@@ -72,6 +74,7 @@
             "hostname" : "R3",
             "id" : "3.3.3.3",
             "AS" : "111",
+            "AS_RP" : "RIP",
             "neighbors":["R2","R4"],
             "interfaces" : 
             [
@@ -105,6 +108,7 @@
             "hostname" : "R4",
             "id" : "4.4.4.4",
             "AS" : "112",
+            "AS_RP" : "OSPF",
             "neighbors":["R3","R5"],
             "interfaces" : 
             [
@@ -138,6 +142,7 @@
             "hostname" : "R5",
             "id" : "5.5.5.5",
             "AS" : "112",
+            "AS_RP" : "OSPF",
             "neighbors":["R4","R6"],
             "interfaces" : 
             [
@@ -171,6 +176,7 @@
             "hostname" : "R6",
             "id" : "6.6.6.6",
             "AS" : "112",
+            "AS_RP" : "OSPF",
             "neighbors":["R5"],
             "interfaces" : 
             [
