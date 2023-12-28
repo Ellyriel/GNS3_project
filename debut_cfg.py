@@ -1,15 +1,26 @@
 import datetime
 
-def recuperer_date():
+def recuperer_date_heure():
+    '''
+    fonction qui récupère la date et l'heure actuelle à laquelle elle est exécutée
+    paramètres : none
+    renvoi : date et heure sous forme d'une chaîne de caractères
+    '''
     x = datetime.datetime.now()
-    date = x.strftime("%H:%M:%S UTC %a %b %d %Y")
-    return date
+    date_heure = x.strftime("%H:%M:%S UTC %a %b %d %Y")
+    return date_heure
 
-def creation_texte(hostname, ip_version):
+def creation_texte_debut(hostname, ip_version):
+    '''
+    fonction qui crée un texte. Dans notre cas, ce texte sera réécrit plus tard dans le fichier de configuration, et il correspond au début du fichier de configuration
+    paramètres : hostname du routeur, version de IP utilisée pour notre réseau
+    renvoi : texte
+    '''
+
     texte = ""
 
     texte += "!\n"*3
-    texte += "! Last configuration change at " + recuperer_date() + "\n"
+    texte += "! Last configuration change at " + recuperer_date_heure() + "\n"
 
     texte += "!\nversion 15.2\nservice timestamps debug datetime msec\nservice timestamps log datetime msec\n!\n"
     texte += "hostname "+ hostname + "\n!\n"
@@ -32,3 +43,23 @@ def creation_texte(hostname, ip_version):
     texte += "ip tcp synwait-time 5\n" + "!\n"*12
     
     return texte
+
+
+
+# A DEPLACER DANS LE FICHIER PRINCIPAL PLUS TARD
+'''
+import debut_cfg
+
+def creation_fichier(hostname):
+    name = "config_"+ hostname + ".cfg"
+    f = open(name,"w")
+    return f
+
+def ecriture_fichier(file,text):
+    file.write(text)
+
+for router in list_routers:
+    fichier_config = creation_fichier(router.hostname)
+    texte_config = debut_cfg.creation_texte_debut(router.hostname, ip_version)
+    ecriture_fichier(fichier_config,texte_config)
+'''

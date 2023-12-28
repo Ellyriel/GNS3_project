@@ -1,5 +1,4 @@
 import json
-import debut_cfg
 
 with open("data.json") as file:
     data = json.load(file)
@@ -71,19 +70,3 @@ def affichage(list_routers):
         print("------------")
 
     print(list_routers)
-
-# creer un fichier
-def creation_fichier(hostname):
-    name = "config_"+ hostname + ".cfg"
-    f = open(name,"w")
-    return f
-
-# ecrire dans un fichier
-def ecriture_fichier(file,text):
-    file.write(text)
-
-# ecriture des fichiers de configuration
-for router in list_routers:
-    fichier_config = creation_fichier(router.hostname)
-    texte_config = debut_cfg.creation_texte(router.hostname, ip_version)
-    ecriture_fichier(fichier_config,texte_config)
