@@ -59,13 +59,19 @@ for router in data["router"]:
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
-for router in list_routers:
-    print(router)
-    print("List of neighbor(s) :")
-    print(f'    {router.neighbors}')
-    print("List of interface(s) :")
-    for interface in router.interfaces:
-        print(f'    {interface}')
-    print("------------")
+def affichage(list_routers):
+    for router in list_routers:
+        print(router)
+        print("List of neighbor(s) :")
+        print(f'    {router.neighbors}')
+        print("List of interface(s) :")
+        for interface in router.interfaces:
+            print(f'    {interface}')
+        print("------------")
 
-print(list_routers)
+    print(list_routers)
+
+
+#fichier_config = creation_fichier(hostname)
+#texte_config = creation_texte(hostname, ip_version)
+#ecriture_fichier(fichier_config,texte_config)

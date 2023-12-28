@@ -1,8 +1,5 @@
 import datetime
 
-hostname = "R1"
-ip_version = 6
-
 def creation_fichier(hostname):
     name = "config_"+ hostname + ".cfg"
     f = open(name,"w")
@@ -43,8 +40,3 @@ def creation_texte(hostname, ip_version):
     texte += "ip tcp synwait-time 5\n" + "!\n"*12
     
     return texte
-
-
-fichier_config = creation_fichier(hostname)
-texte_config = creation_texte(hostname, ip_version)
-ecriture_fichier(fichier_config,texte_config)
