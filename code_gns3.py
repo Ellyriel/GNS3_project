@@ -3,7 +3,7 @@ import json
 with open("data.json") as file:
     data = json.load(file)
 
-ip_version = data["ip_version"]
+ip_version = int(data["ip_version"])
 
 
 # classe définissant un routeur
