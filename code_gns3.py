@@ -59,6 +59,7 @@ for router in data["router"]:
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
+
 for router in list_routers:
     print(router)
     print("List of neighbor(s) :")
@@ -69,3 +70,4 @@ for router in list_routers:
     print("------------")
 
 print(list_routers)
+
