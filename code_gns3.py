@@ -72,7 +72,7 @@ def affichage(list_routers):
         print(f'    {router.neighbors}')
         print("List of interface(s) :")
         for interface in router.interfaces:
-            print(f'    {interface.routing_protocols}')
+            print(f'    {interface}')
         print("------------")
     print(list_routers)
 
