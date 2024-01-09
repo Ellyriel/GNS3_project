@@ -4,8 +4,8 @@ import bgp
 
 with open("data.json") as file:
     data = json.load(file)
+ip_version = int(data["ip_version"])
 
-ip_version = data["ip_version"]
 
 
 # classe définissant un routeur
@@ -72,11 +72,12 @@ def affichage(list_routers):
 
     print(list_routers)
 
+
 def creation_fichier(hostname):
     name = "config_"+ hostname + ".cfg"
     f = open(name,"w")
     return f
 
+# pour accéder à la partie bgp, à changer si besoin
 file = creation_fichier(list_routers[2].hostname)
 bgp.configureBGP(data["router"], list_routers[2].hostname, list_routers[2].id, list_routers[2].AS, file)
-#print (texte_final)
