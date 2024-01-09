@@ -2,7 +2,6 @@ import json
 
 with open("data.json") as file:
     data = json.load(file)
-
 ip_version = int(data["ip_version"])
 
 
@@ -59,6 +58,7 @@ for router in data["router"]:
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
+
 def affichage(list_routers):
     for router in list_routers:
         print(router)
@@ -70,3 +70,4 @@ def affichage(list_routers):
         print("------------")
 
     print(list_routers)
+
