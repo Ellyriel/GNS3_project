@@ -40,20 +40,3 @@ def creation_texte_fin(hostname, id, as_rp, ip_version, file):
 def ecriture_fichier(file,text):
     file.write(text)
 
-
-# A DEPLACER DANS LE FICHIER PRINCIPAL PLUS TARD
-'''
-import fin_cfg
-
-def creation_fichier(hostname):
-    name = "config_"+ hostname + ".cfg"
-    f = open(name,"w")
-    return f
-
-for router in list_routers:
-
-    #fonctions intermédiaires
-
-    texte_config = fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version)
-    ecriture_fichier(fichier_config, texte_config)
-'''

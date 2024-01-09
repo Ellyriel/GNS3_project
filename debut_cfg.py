@@ -56,17 +56,3 @@ def creation_texte_debut(hostname, ip_version, file):
 
 def ecriture_fichier(file,text):
     file.write(text)
-
-# A DEPLACER DANS LE FICHIER PRINCIPAL PLUS TARD
-'''
-import debut_cfg
-
-def creation_fichier(hostname):
-    name = "config_"+ hostname + ".cfg"
-    f = open(name,"w")
-    return f
-
-for router in list_routers:
-    fichier_config = creation_fichier(router.hostname)
-    debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
-'''
