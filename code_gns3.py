@@ -1,6 +1,8 @@
 import json
+import bgp
 
-with open("GNS3\GNS3_project\data.json") as file:
+
+with open("data.json") as file:
     data = json.load(file)
 
 ip_version = data["ip_version"]
@@ -58,13 +60,23 @@ for router in data["router"]:
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
-for router in list_routers:
-    print(router)
-    print("List of neighbor(s) :")
-    print(f'    {router.neighbors}')
-    print("List of interface(s) :")
-    for interface in router.interfaces:
-        print(f'    {interface}')
-    print("------------")
+def affichage(list_routers):
+    for router in list_routers:
+        print(router)
+        print("List of neighbor(s) :")
+        print(f'    {router.neighbors}')
+        print("List of interface(s) :")
+        for interface in router.interfaces:
+            print(f'    {interface}')
+        print("------------")
 
-print(list_routers)
+    print(list_routers)
+
+def creation_fichier(hostname):
+    name = "config_"+ hostname + ".cfg"
+    f = open(name,"w")
+    return f
+
+file = creation_fichier(list_routers[2].hostname)
+bgp.configureBGP(data["router"], list_routers[2].hostname, list_routers[2].id, list_routers[2].AS, file)
+#print (texte_final)
