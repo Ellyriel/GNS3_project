@@ -13,7 +13,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "ip_address" : "2001::1/128",
+                    "ip_address" : "2001:0:0:0:0:0:0:1/128",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : null
                 },
@@ -25,7 +25,7 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "ip_address" : "2001:0:111:12::1/64",
+                    "ip_address" : "2001:0:111:12:0:0:0:1/64",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R2"
                 },
@@ -48,7 +48,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "ip_address" : "2001::2/128",
+                    "ip_address" : "2001:0:0:0:0:0:0:2/128",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : null
                 },
@@ -60,13 +60,13 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "ip_address" : "2001:0:111:12::2/64",
+                    "ip_address" : "2001:0:111:12:0:0:0:2/64",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R1"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "ip_address" : "2001:0:111:23::1/64",
+                    "ip_address" : "2001:0:111:23:0:0:0:1/64",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R3"
                 }
@@ -83,7 +83,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "ip_address" : "2001::3/128",
+                    "ip_address" : "2001:0:0:0:0:0:0:3/128",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : null
                 },
@@ -95,13 +95,13 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "ip_address" : "2001:111:112:34::1/64",
+                    "ip_address" : "2001:111:112:34:0:0:0:1/64",
                     "routing_protocols" : ["eBGP"],
                     "connected_to" : "R4"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "ip_address" : "2001:0:111:23::2/64",
+                    "ip_address" : "2001:0:111:23:0:0:0:2/64",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R2"
                 }
@@ -118,7 +118,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "ip_address" : "2001::4/128",
+                    "ip_address" : "2001:0:0:0:0:0:0:4/128",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : null
                 },
@@ -130,13 +130,13 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "ip_address" : "2001:111:112:34::2/64",
-                    "routing_protocols" : ["OSPF", "eBGP"],
+                    "ip_address" : "2001:111:112:34:0:0:0:2/64",
+                    "routing_protocols" : ["eBGP"],
                     "connected_to" : "R3"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "ip_address" : "2001:0:112:45::1/64",
+                    "ip_address" : "2001:0:112:45:0:0:0:1/64",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R5"
                 }
@@ -153,7 +153,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "ip_address" : "2001::5/128",
+                    "ip_address" : "2001:0:0:0:0:0:0:5/128",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : null
                 },
@@ -165,13 +165,13 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "ip_address" : "2001:0:112:56::2/64",
+                    "ip_address" : "2001:0:112:56:0:0:0:2/64",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R6"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "ip_address" : "2001:0:112:45::2/64",
+                    "ip_address" : "2001:0:112:45:0:0:0:2/64",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R4"
                 }
@@ -188,7 +188,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "ip_address" : "2001::6/128",
+                    "ip_address" : "2001:0:0:0:0:0:0:6/128",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : null
                 },
@@ -200,7 +200,7 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "ip_address" : "2001:0:112:56::1/64",
+                    "ip_address" : "2001:0:112:56:0:0:0:1/64",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R5"
                 },
