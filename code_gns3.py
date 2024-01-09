@@ -76,14 +76,14 @@ def affichage(list_routers):
         print("------------")
     print(list_routers)
 
-
+# génération des fichiers de configuration
 def creation_fichier(hostname):
     name = "config_"+ hostname + ".cfg"
     f = open(name,"w")
     return f
 
 for router in list_routers:
-    fichier_config = creation_fichier(router.hostname)
+    fichier_config = creation_fichier(router.hostname, fichier_config)
     debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
     interface_function.configureinterface(router, fichier_config)
     bgp.configureBGP(list_routers, router.hostname, router.id, router.AS, fichier_config)
