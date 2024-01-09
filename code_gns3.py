@@ -12,11 +12,12 @@ ip_version = int(data["ip_version"])
 # classe définissant un routeur
 class Router :
 
-    def __init__ (self, hostname, id, AS, AS_RP, neighbors, interfaces) :
+    def __init__ (self, hostname, id, AS, AS_RP, Area, neighbors, interfaces) :
         self.hostname = hostname
         self.id = id
         self.AS = AS
         self.AS_RP = AS_RP
+        self.Area = Area
         self.neighbors = neighbors
         self.interfaces = interfaces
         
@@ -48,6 +49,7 @@ for router in data["router"]:
     hostname = router["hostname"]
     AS = int(router["AS"])
     AS_RP = router["AS_RP"]
+    Area = router["Area"]
     id = router["id"]
     neighbors = router["neighbors"]
 
@@ -59,7 +61,7 @@ for router in data["router"]:
         connected_to = interface["connected_to"]
         list_interfaces.append(Interface(name, ip_address, routing_protocols, connected_to))
 
-    list_routers.append(Router(hostname,id,AS,AS_RP,neighbors,list_interfaces))
+    list_routers.append(Router(hostname,id,AS,AS_RP,Area,neighbors,list_interfaces))
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
