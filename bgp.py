@@ -53,6 +53,7 @@ def configureBGP(router, hostname, id, AS, file):
     for j in range (0,len(eBGP),2):
         texte += "  neighbor " + eBGP[j] + " activate\n"
 
+    texte += " exit-address-family\n"+"!\n"
     ecriture_fichier(file, texte)
 
 

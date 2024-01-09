@@ -1,6 +1,8 @@
 import json
 import bgp
-
+import interface_function
+import debut_cfg
+import fin_cfg
 
 with open("data.json") as file:
     data = json.load(file)
@@ -78,7 +80,9 @@ def creation_fichier(hostname):
     f = open(name,"w")
     return f
 
-# pour accéder à la partie bgp, à changer si besoin
-file = creation_fichier(list_routers[2].hostname)
-bgp.configureBGP(data["router"], list_routers[2].hostname, list_routers[2].id, list_routers[2].AS, file)
-
+for router in list_routers:
+    fichier_config = creation_fichier(router.hostname)
+    debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
+    interface_function.configureinterface(router, fichier_config)
+    bgp.configureBGP(data["router"], router.hostname, router.id, router.AS, fichier_config)
+    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version,fichier_config)
