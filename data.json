@@ -131,7 +131,7 @@
                 {
                     "name" : "GigabitEthernet1/0",
                     "ip_address" : "2001:111:112:34::2/64",
-                    "routing_protocols" : ["eBGP"],
+                    "routing_protocols" : ["OSPF", "eBGP"],
                     "connected_to" : "R3"
                 },
                 {
