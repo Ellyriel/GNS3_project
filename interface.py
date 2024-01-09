@@ -24,25 +24,26 @@ interface GigabitEthernet2/0
  negotiation auto
 !
 """
-def configureinterface(router):
-    text = ""
+
+def ecriture_fichier(file,text):
+    file.write(text)
+
+def configureinterface(router, file):
     for interface in router.interfaces:
-        text += "interface " + interface.name + "\n"
-        text += " no ip address \n"
+        ecriture_fichier(file, "interface " + interface.name + "\n")
+        ecriture_fichier(file," no ip address \n")
         if interface.ip_address == None:
-            text += " shutdown \n"
+            ecriture_fichier(file," shutdown \n")
         if interface.name == "FastEthernet0/0":
-                text += " duplex full \n"
+                ecriture_fichier(file," duplex full \n")
         elif interface.name != "Loopback0":
-            text += " negociation auto \n"
+            ecriture_fichier(file," negociation auto \n")
         if interface.ip_address != None :
             ip_ad = str(interface.ip_address)
-            text += " ipv6 address " + ip_ad + "\n"
-            text += " ipv6 enable\n"
+            ecriture_fichier(file, " ipv6 address " + ip_ad + "\n")
+            ecriture_fichier(file," ipv6 enable\n")
             if interface.routing_protocols[0] == 'RIP' :
-                text += " ipv6 rip ripng enable \n"
+                ecriture_fichier(file,"ipv6 rip ripng enable \n")
             #else:
                 # soucis ospf : process_id + area number à configurer
-        text += "!\n"
-
-    return text
+        ecriture_fichier(file,"!\n")
