@@ -47,5 +47,6 @@ def configureinterface(router, file):
             elif interface.routing_protocols[0] != None and 'OSPF' in interface.routing_protocols:
                 process_id = router.hostname[1:]
                 area = router.Area 
+
                 ecriture_fichier(file," ipv6 ospf " + process_id + " area " + area + "\n")
         ecriture_fichier(file,"!\n")

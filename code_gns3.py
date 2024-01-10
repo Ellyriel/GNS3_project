@@ -118,6 +118,7 @@ def affichage(list_routers):
         print("------------")
     print(list_routers)
 
+# génération des fichiers de configuration
 def creation_fichier(hostname):
     name = "config_"+ hostname + ".cfg"
     f = open(name,"w")
@@ -127,5 +128,5 @@ for router in list_routers:
     fichier_config = creation_fichier(router.hostname)
     debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
     interface_function.configureinterface(router, fichier_config)
-    bgp.configureBGP(data["router"], router.hostname, router.id, router.AS, fichier_config)
-    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version, fichier_config)
+    bgp.configureBGP(list_routers, router.hostname, router.id, router.AS, fichier_config)
+    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, router.interfaces, ip_version, fichier_config)
