@@ -31,9 +31,10 @@ class Router :
 # classe définissant une interface d'un routeur
 class Interface :
 
-    def __init__ (self, name, ip_address, routing_protocols, connected_to) :
+    def __init__ (self, name, ip_address, network, routing_protocols, connected_to) :
         self.name = name
         self.ip_address = ip_address
+        self.network = network
         self.routing_protocols = routing_protocols
         self.connected_to = connected_to
 
@@ -43,11 +44,13 @@ class Interface :
     def __repr__(self):
         return f'Interface {self.name}'
 
+
+
 # mise en forme des données de chacun des routeurs
 list_routers = []
 for router in data["router"]:
     hostname = router["hostname"]
-    AS = int(router["AS"])
+    AS = router["AS"]
     AS_RP = router["AS_RP"]
     Area = router["Area"]
     id = router["id"]
@@ -56,12 +59,51 @@ for router in data["router"]:
     list_interfaces = []
     for interface in router["interfaces"]:
         name = interface["name"]
-        ip_address = interface["ip_address"]
+        ip_address = None
+        network = None
         routing_protocols = interface["routing_protocols"]
         connected_to = interface["connected_to"]
-        list_interfaces.append(Interface(name, ip_address, routing_protocols, connected_to))
+        list_interfaces.append(Interface(name, ip_address, network, routing_protocols, connected_to))
 
     list_routers.append(Router(hostname,id,AS,AS_RP,Area,neighbors,list_interfaces))
+
+#création de la fonction qui automatise les @ ipv6
+
+def num_ip(router1, router2):
+    num_router1 = int(router1.hostname[1:])
+    num_router2 = int(router2.hostname[1:])
+    if num_router1 < num_router2:
+        numero = num_router1*10 + num_router2
+    else :
+        numero = num_router2*10 + num_router1
+    return str(numero)
+    
+
+def generer_ip_network(router1,router2):
+    numero = num_ip(router1, router2)
+    address_ip = "2001:100:" + router1.AS + ":" + numero + ":0:" + router.hostname[1:] + "/64"
+    network = "2001:100:" + router1.AS + ":" + numero + ":0:0" + "/64"
+    return address_ip, network
+
+def generer_ip_network_loopback(router):
+    address_ip = "2001:100:0:0:0:0:0:"+ router.hostname[1:] + "/128"
+    network = "2001:100:0:0:0:0:0:0/128"
+    return address_ip, network
+
+
+
+for router in list_routers:
+    for interface in router.interfaces:
+        if interface.name == "Loopback0":
+            interface.ip_address, interface.network= generer_ip_network_loopback(router)
+        if interface.connected_to != None and interface.name != "Loopback0":
+            a = 0
+            router2 = list_routers[a]
+            while router2.hostname != interface.connected_to and a < len(list_routers):
+                a += 1
+                router2 = list_routers[a]
+            interface.ip_address, interface.network= generer_ip_network(router,router2)
+
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
@@ -76,15 +118,14 @@ def affichage(list_routers):
         print("------------")
     print(list_routers)
 
-
 def creation_fichier(hostname):
     name = "config_"+ hostname + ".cfg"
     f = open(name,"w")
     return f
 
-for router in list_routers:
-    fichier_config = creation_fichier(router.hostname)
-    debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
-    interface_function.configureinterface(router, fichier_config)
-    bgp.configureBGP(data["router"], router.hostname, router.id, router.AS, fichier_config)
-    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version, fichier_config)
+router = list_routers[3]
+fichier_config = creation_fichier(router.hostname)
+debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
+interface_function.configureinterface(router, fichier_config)
+bgp.configureBGP(data["router"], router.hostname, router.id, router.AS, fichier_config)
+fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version, fichier_config)
