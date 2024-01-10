@@ -63,16 +63,14 @@ def neighbors_eBGP(list_routers, hostname): #fonctionne
     for i in list_routers:
         if i.hostname != hostname :
             for j in i.interfaces:
-                if j.routing_protocols != None :
-                    for k in j.routing_protocols :
-                        if k == "eBGP" : 
-                            ip = enleve_masque(j.ip_address)
-                            eBGP.append(ip)
-                            voisin = j.connected_to
-                            for l in list_routers :
-                                if l.hostname == voisin :
-                                    AS_neighbor = l.AS
-                                    eBGP.append(AS_neighbor)
+                if j.routing_protocols != None and "eBGP" in j.routing_protocols :
+                    ip = enleve_masque(j.ip_address)
+                    eBGP.append(ip)
+                    voisin = j.connected_to   # problème ici : dans le cas de R4, on parcourt R3, donc le voisin avec un routing protocol égal à eBGP est R4
+                    for l in list_routers :
+                        if l.hostname == voisin :
+                            AS_neighbor = l.AS
+                            eBGP.append(AS_neighbor)
     return eBGP
 
 def ecriture_fichier(file,text):
