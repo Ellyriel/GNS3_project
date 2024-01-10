@@ -1,8 +1,8 @@
 def configureBGP(list_routers, hostname, id, AS, file):
     # rédige la partie configuration du protocole BGP dans le fichier file
 
-    texte = "list_routers bgp " + str(AS) + "\n"
-    texte += " bgp routeur-id " + id + "\n"
+    texte = "router bgp " + str(AS) + "\n"
+    texte += " bgp router-id " + id + "\n"
     texte += " bgp log-neighbor-changes\n"
     texte += " no bgp default ipv4-unicast\n"
 
@@ -61,7 +61,7 @@ def neighbors_eBGP(list_routers, hostname): #fonctionne
     '''
     eBGP = []
     for i in list_routers:
-        if i.hostname == hostname :
+        if i.hostname != hostname :
             for j in i.interfaces:
                 if j.routing_protocols != None :
                     for k in j.routing_protocols :

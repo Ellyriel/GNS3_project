@@ -10,7 +10,7 @@ def num_ip(router1, router2):
 #création de la fonction qui automatise les @ ipv6 selon si c'est une loopback ou une interface "normale"
 def generer_ip(router1,router2):
     numero = num_ip(router1, router2)
-    address_ip = "2001:100:" + router1.AS + ":" + numero + ":0:0:0:" + router1.hostname[1:] + "/64"
+    address_ip = "2001:100:0:" + numero + ":0:0:0:" + router1.hostname[1:] + "/64"
     return address_ip
 
 def generer_ip_loopback(router):
