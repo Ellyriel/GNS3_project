@@ -46,7 +46,7 @@ def configureinterface(router, file):
                 ecriture_fichier(file," ipv6 rip ripng enable \n")
             elif interface.routing_protocols[0] != None and 'OSPF' in interface.routing_protocols:
                 process_id = router.hostname[1:]
-                area = router.Area 
+                area = router.area 
 
                 ecriture_fichier(file," ipv6 ospf " + process_id + " area " + area + "\n")
         ecriture_fichier(file,"!\n")
