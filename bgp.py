@@ -37,11 +37,10 @@ def configureBGP(list_routers, hostname, id, AS, file):
 
 
 def neighbors_iBGP(list_routers, AS_host, hostname): #fonctionne
-    # retourne une listes qui contient toutes les adresses
-    # loopback des routeurs de l'AS de l'hôte dans la liste iBGP
-    # (sans l'adresse loopback de l'hôte). 
-    # retourne dans routes_AS les ad ip des routes de l'AS qui 
-    # ne sont pas en Loopback
+    '''
+    retourne une listes qui contient toutes les adresses loopback des routeurs de l'AS de l'hôte dans la liste iBGP (sans l'adresse loopback de l'hôte). 
+    retourne dans routes_AS les ad ip des routes de l'AS qui ne sont pas en Loopback
+    '''
     iBGP = []
     routes_AS = []
     for i in list_routers:
@@ -55,10 +54,11 @@ def neighbors_iBGP(list_routers, AS_host, hostname): #fonctionne
                     routes_AS.append(j.ip_address)
     return iBGP, routes_AS
 
-def neighbors_eBGP(list_routers, hostname): #fonctionne mais est ce
-    # retourne une listes qui contient toutes les adresses
-    # des routeurs voisins en eBGP de l'AS de l'hôte et le numéro d'AS du voisin
-    # par exemple : eBGP = ["2001:111:112:34::1/64","112"]
+def neighbors_eBGP(list_routers, hostname): #fonctionne
+    '''
+    retourne une listes qui contient toutes les adresses des routeurs voisins en eBGP de l'AS de l'hôte et le numéro d'AS du voisin
+    par exemple : eBGP = ["2001:111:112:34::1/64","112"]
+    '''
     eBGP = []
     for i in list_routers:
         if i.hostname == hostname :
@@ -79,16 +79,19 @@ def ecriture_fichier(file,text):
     file.write(text)
 
 def enleve_masque (ip_masque): #fonctionne
-    # prend en paramètre une chaîne de caractère qui correspond à une adresse IP 
-    # avec un masque 
-    # retourne l'adresse ip sans le masque
+    '''
+    prend en paramètre une chaîne de caractère qui correspond à une adresse IP avec un masque 
+    retourne l'adresse ip sans le masque
+    '''
     indice = ip_masque.find("/")
     ip_sans_masque = ip_masque[:indice]
     return (ip_sans_masque)
 
 def prefixe_ip (ip_masque):
-    # prend une adresse ip avec son masque
-    # retourne seulement le préfixe avec /masque
+    '''
+    prend une adresse ip avec son masque
+    retourne seulement le préfixe avec /masque
+    '''
     liste_ip = decompose_ip(ip_masque)
     masque = liste_ip[8]
     prefixe = ""
@@ -101,7 +104,9 @@ def prefixe_ip (ip_masque):
     return prefixe
 
 def decompose_ip(ip):
-    # retourne une liste dont les éléments sont les partis séparées de l'adresse ip avec masque en argument
+    '''
+    retourne une liste dont les éléments sont les partis séparées de l'adresse ip avec masque en argument
+    '''
     ip_decomposee = []
     indice_precedent = -1
     # récupère les 8 nombres hexadécimaux de l'adresse dans une liste
