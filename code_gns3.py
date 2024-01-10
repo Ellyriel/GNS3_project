@@ -10,15 +10,16 @@ with open("data.json") as file:
     
 ip_version = int(data["ip_version"])
 
+
 # classe définissant un routeur
 class Router :
 
-    def __init__ (self, hostname, id, AS, AS_RP, Area, neighbors, interfaces) :
+    def __init__ (self, hostname, id, AS, AS_RP, area, neighbors, interfaces) :
         self.hostname = hostname
         self.id = id
         self.AS = AS
         self.AS_RP = AS_RP
-        self.Area = Area
+        self.area = area
         self.neighbors = neighbors
         self.interfaces = interfaces
         
@@ -32,10 +33,9 @@ class Router :
 # classe définissant une interface d'un routeur
 class Interface :
 
-    def __init__ (self, name, ip_address, network, routing_protocols, connected_to) :
+    def __init__ (self, name, ip_address, routing_protocols, connected_to) :
         self.name = name
         self.ip_address = ip_address
-        self.network = network
         self.routing_protocols = routing_protocols
         self.connected_to = connected_to
 
@@ -46,14 +46,13 @@ class Interface :
         return f'Interface {self.name}'
 
 
-
 # mise en forme des données de chacun des routeurs
 list_routers = []
 for router in data["router"]:
     hostname = router["hostname"]
     AS = router["AS"]
     AS_RP = router["AS_RP"]
-    Area = router["Area"]
+    area = router["area"]
     id = router["id"]
     neighbors = router["neighbors"]
 
@@ -61,26 +60,25 @@ for router in data["router"]:
     for interface in router["interfaces"]:
         name = interface["name"]
         ip_address = None
-        network = None
         routing_protocols = interface["routing_protocols"]
         connected_to = interface["connected_to"]
-        list_interfaces.append(Interface(name, ip_address, network, routing_protocols, connected_to))
+        list_interfaces.append(Interface(name, ip_address, routing_protocols, connected_to))
 
-    list_routers.append(Router(hostname,id,AS,AS_RP,Area,neighbors,list_interfaces))
+    list_routers.append(Router(hostname, id, AS, AS_RP, area, neighbors, list_interfaces))
 
 
+# création des adresses ipv6 pour chaque interface des routeurs
 for router in list_routers:
     for interface in router.interfaces:
         if interface.name == "Loopback0":
-            interface.ip_address, interface.network= creation_ip_network.generer_ip_network_loopback(router)
+            interface.ip_address = creation_ip_network.generer_ip_loopback(router)
         if interface.connected_to != None and interface.name != "Loopback0":
             a = 0
             router2 = list_routers[a]
             while router2.hostname != interface.connected_to and a < len(list_routers):
                 a += 1
                 router2 = list_routers[a]
-            interface.ip_address, interface.network= creation_ip_network.generer_ip_network(router,router2)
-
+            interface.ip_address = creation_ip_network.generer_ip(router,router2)
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
@@ -94,6 +92,7 @@ def affichage(list_routers):
             print(f'    {interface}')
         print("------------")
     print(list_routers)
+
 
 # génération des fichiers de configuration
 def creation_fichier(hostname):
