@@ -39,13 +39,14 @@ def configureinterface(router, file):
         elif interface.name != "Loopback0":
             ecriture_fichier(file," negociation auto \n")
         if interface.ip_address != None :
-            ip_ad = str(interface.ip_address)
+            ip_ad = interface.ip_address
             ecriture_fichier(file, " ipv6 address " + ip_ad + "\n")
             ecriture_fichier(file," ipv6 enable\n")
-            if interface.routing_protocols[0] == 'RIP' :
+            if interface.routing_protocols != None and 'RIP' in interface.routing_protocols :
                 ecriture_fichier(file," ipv6 rip ripng enable \n")
-            elif interface.routing_protocols[0] == 'OSPF':
-                process_id = str(router.hostname[1:])
-                area = str(router.Area) 
+            elif interface.routing_protocols[0] != None and 'OSPF' in interface.routing_protocols:
+                process_id = router.hostname[1:]
+                area = router.Area 
+
                 ecriture_fichier(file," ipv6 ospf " + process_id + " area " + area + "\n")
         ecriture_fichier(file,"!\n")
