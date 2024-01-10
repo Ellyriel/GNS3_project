@@ -96,7 +96,7 @@ def affichage(list_routers):
 
 # génération des fichiers de configuration
 def creation_fichier(hostname):
-    name = "config_"+ hostname + ".cfg"
+    name = "i"+ hostname[1:] + "_startup-config.cfg"
     f = open(name,"w")
     return f
 
