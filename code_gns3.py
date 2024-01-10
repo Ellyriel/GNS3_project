@@ -3,7 +3,7 @@ import bgp
 import interface_function
 import debut_cfg
 import fin_cfg
-import creation_ip_network
+import automatic_ip
 
 with open("data.json") as file:
     data = json.load(file)
@@ -71,14 +71,14 @@ for router in data["router"]:
 for router in list_routers:
     for interface in router.interfaces:
         if interface.name == "Loopback0":
-            interface.ip_address = creation_ip_network.generer_ip_loopback(router)
+            interface.ip_address = automatic_ip.generer_ip_loopback(router)
         if interface.connected_to != None and interface.name != "Loopback0":
             a = 0
             router2 = list_routers[a]
             while router2.hostname != interface.connected_to and a < len(list_routers):
                 a += 1
                 router2 = list_routers[a]
-            interface.ip_address = creation_ip_network.generer_ip(router,router2)
+            interface.ip_address = automatic_ip.generer_ip(router,router2)
 
 
 # affiche la liste des routeurs, leurs interfaces et leurs voisins
