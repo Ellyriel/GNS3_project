@@ -123,9 +123,9 @@ def creation_fichier(hostname):
     f = open(name,"w")
     return f
 
-router = list_routers[3]
-fichier_config = creation_fichier(router.hostname)
-debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
-interface_function.configureinterface(router, fichier_config)
-bgp.configureBGP(data["router"], router.hostname, router.id, router.AS, fichier_config)
-fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version, fichier_config)
+for router in list_routers:
+    fichier_config = creation_fichier(router.hostname)
+    debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
+    interface_function.configureinterface(router, fichier_config)
+    bgp.configureBGP(data["router"], router.hostname, router.id, router.AS, fichier_config)
+    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, ip_version, fichier_config)
