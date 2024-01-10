@@ -3,6 +3,7 @@ import bgp
 import interface_function
 import debut_cfg
 import fin_cfg
+import creation_ip_network
 
 with open("data.json") as file:
     data = json.load(file)
@@ -67,42 +68,18 @@ for router in data["router"]:
 
     list_routers.append(Router(hostname,id,AS,AS_RP,Area,neighbors,list_interfaces))
 
-#création de la fonction qui automatise les @ ipv6
-
-def num_ip(router1, router2):
-    num_router1 = int(router1.hostname[1:])
-    num_router2 = int(router2.hostname[1:])
-    if num_router1 < num_router2:
-        numero = num_router1*10 + num_router2
-    else :
-        numero = num_router2*10 + num_router1
-    return str(numero)
-    
-
-def generer_ip_network(router1,router2):
-    numero = num_ip(router1, router2)
-    address_ip = "2001:100:" + router1.AS + ":" + numero + ":0:0:0:" + router.hostname[1:] + "/64"
-    network = "2001:100:" + router1.AS + ":" + numero + ":0:0:0:0" + "/64"
-    return address_ip, network
-
-def generer_ip_network_loopback(router):
-    address_ip = "2001:100:0:0:0:0:0:"+ router.hostname[1:] + "/128"
-    network = "2001:100:0:0:0:0:0:0/128"
-    return address_ip, network
-
-
 
 for router in list_routers:
     for interface in router.interfaces:
         if interface.name == "Loopback0":
-            interface.ip_address, interface.network= generer_ip_network_loopback(router)
+            interface.ip_address, interface.network= creation_ip_network.generer_ip_network_loopback(router)
         if interface.connected_to != None and interface.name != "Loopback0":
             a = 0
             router2 = list_routers[a]
             while router2.hostname != interface.connected_to and a < len(list_routers):
                 a += 1
                 router2 = list_routers[a]
-            interface.ip_address, interface.network= generer_ip_network(router,router2)
+            interface.ip_address, interface.network= creation_ip_network.generer_ip_network(router,router2)
 
 
 
