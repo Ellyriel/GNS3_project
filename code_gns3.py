@@ -81,8 +81,8 @@ def num_ip(router1, router2):
 
 def generer_ip_network(router1,router2):
     numero = num_ip(router1, router2)
-    address_ip = "2001:100:" + router1.AS + ":" + numero + ":0:" + router.hostname[1:] + "/64"
-    network = "2001:100:" + router1.AS + ":" + numero + ":0:0" + "/64"
+    address_ip = "2001:100:" + router1.AS + ":" + numero + ":0:0:0:" + router.hostname[1:] + "/64"
+    network = "2001:100:" + router1.AS + ":" + numero + ":0:0:0:0" + "/64"
     return address_ip, network
 
 def generer_ip_network_loopback(router):
