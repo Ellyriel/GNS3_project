@@ -5,7 +5,7 @@ import debut_cfg
 import fin_cfg
 import automatic_ip
 
-with open("data.json") as file:
+with open("data_extent.json") as file:
     data = json.load(file)
     
 ip_version = int(data["ip_version"])
@@ -104,10 +104,6 @@ for router in list_routers:
     fichier_config = creation_fichier(router.hostname)
     debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
     interface_function.configureinterface(router, fichier_config)
-<<<<<<< HEAD
-    bgp.configureBGP(list_routers, router.hostname, router.id, router.AS, fichier_config)
-    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, router.interfaces, ip_version, fichier_config)
-=======
     bgp.configureBGP(list_routers,router.interfaces, router.hostname, router.id, router.AS, fichier_config)
     fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, router.interfaces, ip_version, fichier_config)
->>>>>>> a65458c315c4ea637141bc8334e1cda999dc8061
+
