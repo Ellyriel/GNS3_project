@@ -64,7 +64,7 @@ def neighbors_eBGP(list_routers, hostname): #fonctionne
     '''
     eBGP = []
     for i in list_routers:
-        if i.hostname != hostname :
+        if i.hostname != hostname and hostname in i.neighbors:
             for j in i.interfaces:
                 if j.routing_protocols != None and "eBGP" in j.routing_protocols :
                     ip = enleve_masque(j.ip_address)
