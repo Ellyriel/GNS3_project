@@ -421,7 +421,7 @@
             "id" : "12.12.12.12",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "39",
+            "area" : "38",
             "neighbors":["R10","R13","R14"],
             "interfaces" : 
             [
@@ -457,7 +457,7 @@
             "id" : "13.13.13.13",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "39",
+            "area" : "38",
             "neighbors":["R11","R12","R14"],
             "interfaces" : 
             [
@@ -493,7 +493,7 @@
             "id" : "14.14.14.14",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "39",
+            "area" : "38",
             "neighbors":["R12","R13"],
             "interfaces" : 
             [
