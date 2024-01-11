@@ -37,7 +37,7 @@ def configureinterface(router, file):
         if interface.name == "FastEthernet0/0":
                 ecriture_fichier(file," duplex full \n")
         elif interface.name != "Loopback0":
-            ecriture_fichier(file," negociation auto \n")
+            ecriture_fichier(file," negotiation auto \n")
         if interface.ip_address != None :
             ip_ad = interface.ip_address
             ecriture_fichier(file, " ipv6 address " + ip_ad + "\n")
