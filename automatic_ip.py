@@ -20,5 +20,5 @@ def generer_ip(router1,router2):
     return address_ip
 
 def generer_ip_loopback(router):
-    address_ip = "2001:100:0:0:0:0:0:"+ router.hostname[1:] + "/128"
+    address_ip = "2001:0:0:0:0:0:0:"+ router.hostname[1:] + "/128"
     return address_ip

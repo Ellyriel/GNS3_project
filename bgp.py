@@ -53,7 +53,7 @@ def neighbors_iBGP(list_routers, AS_host, hostname): #fonctionne
                 if (j.name == "Loopback0" and j.ip_address != None) :
                     ip = enleve_masque(j.ip_address)
                     iBGP.append(ip)
-                elif (j.name != "Loopback0" and j.ip_address != None) : 
+                elif (j.name != "Loopback0" and j.ip_address != None and "eBGP" not in j.routing_protocols) : 
                     routes_AS.append(j.ip_address)
     return iBGP, routes_AS
 
