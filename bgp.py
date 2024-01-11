@@ -1,4 +1,4 @@
-def configureBGP(list_routers, hostname, id, AS, file):
+def configureBGP(list_routers, interfaces, hostname, id, AS, file):
     # rédige la partie configuration du protocole BGP dans le fichier file
 
     texte = "router bgp " + str(AS) + "\n"
@@ -13,9 +13,12 @@ def configureBGP(list_routers, hostname, id, AS, file):
        ecriture_fichier(file," neighbor " + address + " remote-as " + str(AS) + "\n")
        ecriture_fichier(file," neighbor " + address + " update-source Loopback0\n")
 
-    eBGP = neighbors_eBGP(list_routers, hostname)
-    for address in range(0, len(eBGP)-1, 2) :
-        ecriture_fichier(file, " neighbor " + eBGP[address] + " remote-as " + str(eBGP[address+1]) + "\n")
+    eBGP = []
+    for interface in interfaces :
+        if interface.routing_protocols != None and "eBGP" in interface.routing_protocols :
+            eBGP = neighbors_eBGP(list_routers, hostname)
+            for address in range(0, len(eBGP)-1, 2) :
+                ecriture_fichier(file, " neighbor " + eBGP[address] + " remote-as " + str(eBGP[address+1]) + "\n")
     
     texte = " !\n" + " address-family ipv4\n" 
     texte += " exit-address-family\n"+" !\n"
