@@ -66,11 +66,7 @@ def neighbors_eBGP(list_routers, hostname): #fonctionne
                 if j.routing_protocols != None and "eBGP" in j.routing_protocols :
                     ip = enleve_masque(j.ip_address)
                     eBGP.append(ip)
-                    voisin = j.connected_to   # problème ici : dans le cas de R4, on parcourt R3, donc le voisin avec un routing protocol égal à eBGP est R4
-                    for l in list_routers :
-                        if l.hostname == voisin :
-                            AS_neighbor = l.AS
-                            eBGP.append(AS_neighbor)
+                    eBGP.append(i.AS)
     return eBGP
 
 def ecriture_fichier(file,text):
@@ -120,8 +116,10 @@ def decompose_ip(ip):
     return ip_decomposee
 
 def networks (routes_AS):
-    # récupère les adresses ip (pas loopback) de l'AS
-    # retourne une liste des préfixes de ces adresses sans doublons
+    """
+    récupère les adresses ip (pas loopback) de l'AS
+    retourne une liste des préfixes de ces adresses sans doublons
+    """
     prefixes = []
     for k in routes_AS : 
         prefixe = prefixe_ip(k)
