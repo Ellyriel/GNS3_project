@@ -2,9 +2,9 @@ def num_ip(router1, router2):
     num_router1 = int(router1.hostname[1:])
     num_router2 = int(router2.hostname[1:])
     if num_router1 < num_router2:
-        numero = num_router1*10 + num_router2
+        numero = num_router1*100 + num_router2
     else :
-        numero = num_router2*10 + num_router1
+        numero = num_router2*100 + num_router1
     return str(numero)
     
 #création de la fonction qui automatise les @ ipv6 selon si c'est une loopback ou une interface "normale"
