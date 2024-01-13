@@ -59,7 +59,7 @@
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "routing_protocols" : ["eBGP"],
                     "connected_to" : "R4"
                 },
                 {
@@ -75,7 +75,7 @@
             "AS" : "100",
             "AS_RP" : "RIP",
             "area" : null,
-            "neighbors":["R1","R2","R5"],
+            "neighbors":["R1","R2","R8"],
             "interfaces" : 
             [
                 {
@@ -91,8 +91,8 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R5"
+                    "routing_protocols" : ["eBGP"],
+                    "connected_to" : "R8"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
@@ -109,15 +109,15 @@
         {
             "hostname" : "R4",
             "id" : "4.4.4.4",
-            "AS" : "100",
-            "AS_RP" : "RIP",
+            "AS" : "200",
+            "AS_RP" : "OSPF",
             "area" : null,
-            "neighbors":["R2","R5","R6","R7"],
+            "neighbors":["R2","R5","R6"],
             "interfaces" : 
             [
                 {
                     "name" : "Loopback0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : null
                 },
                 {
@@ -127,38 +127,33 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R6"
+                    "routing_protocols" : ["OSPF","iBGP"],
+                    "connected_to" : "R5"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "routing_protocols" : ["OSPF","eBGP"],
                     "connected_to" : "R2"
                 },
                 {
                     "name" : "GigabitEthernet3/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R5"
-                },
-                {
-                    "name" : "GigabitEthernet4/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R7"
+                    "routing_protocols" : ["OSPF","iBGP"],
+                    "connected_to" : "R6"
                 }
             ]
         },
         {
             "hostname" : "R5",
             "id" : "5.5.5.5",
-            "AS" : "100",
-            "AS_RP" : "RIP",
+            "AS" : "200",
+            "AS_RP" : "OSPF",
             "area" : null,
-            "neighbors":["R6","R3","R4","R7"],
+            "neighbors":["R4","R6"],
             "interfaces" : 
             [
                 {
                     "name" : "Loopback0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : null
                 },
                 {
@@ -168,22 +163,12 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R3"
-                },
-                {
-                    "name" : "GigabitEthernet2/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R7"
-                },
-                {
-                    "name" : "GigabitEthernet3/0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R4"
                 },
                 {
-                    "name" : "GigabitEthernet4/0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "name" : "GigabitEthernet2/0",
+                    "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R6"
                 }
             ] 
@@ -191,15 +176,15 @@
         {
             "hostname" : "R6",
             "id" : "6.6.6.6",
-            "AS" : "100",
-            "AS_RP" : "RIP",
+            "AS" : "200",
+            "AS_RP" : "OSPF",
             "area" : null,
-            "neighbors":["R4","R5","R8"],
+            "neighbors":["R4","R5","R10"],
             "interfaces" : 
             [
                 {
                     "name" : "Loopback0",
-                    "routing_protocols" : ["RIP","iBGP"],
+                    "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : null
                 },
                 {
@@ -210,18 +195,18 @@
                 },
                 {
                     "name" : "GigabitEthernet1/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R4"
+                    "routing_protocols" : ["OSPF","eBGP"],
+                    "connected_to" : "R10"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
-                    "routing_protocols" : ["eBGP"],
-                    "connected_to" : "R8"
+                    "routing_protocols" : ["OSPF","iBGP"],
+                    "connected_to" : "R5"
                 },
                 {
                     "name" : "GigabitEthernet3/0",
-                    "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : "R5"
+                    "routing_protocols" : ["OSPF","iBGP"],
+                    "connected_to" : "R4"
                 }
             ]
         },
