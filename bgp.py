@@ -22,7 +22,6 @@ def configureBGP(list_routers, interfaces, hostname, id, AS, file):
     
     texte = " !\n" + " address-family ipv4\n" 
     texte += " exit-address-family\n"+" !\n"
-    
     texte += " address-family ipv6\n"
 
     ecriture_fichier(file, texte)
