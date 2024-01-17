@@ -217,7 +217,7 @@
             "AS" : "300",
             "AS_RP" : "RIP",
             "area" : "30",
-            "neighbors":["R6","R8","R9","10"],
+            "neighbors":["R6","R8","R9","R10"],
             "interfaces" : 
             [
                 {
