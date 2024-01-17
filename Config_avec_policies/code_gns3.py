@@ -33,14 +33,15 @@ class Router :
 # classe définissant une interface d'un routeur
 class Interface :
 
-    def __init__ (self, name, ip_address, routing_protocols, connected_to) :
+    def __init__ (self, name, ip_address, routing_protocols, connected_to, relation) :
         self.name = name
         self.ip_address = ip_address
         self.routing_protocols = routing_protocols
         self.connected_to = connected_to
+        self.relation = relation
 
     def __str__(self):
-        return f'[Interface {self.name} : IP Address {self.ip_address}, Routing Protocols {self.routing_protocols}, Connected to {(self.connected_to)}]'
+        return f'[Interface {self.name} : IP Address {self.ip_address}, Routing Protocols {self.routing_protocols}, Connected to {self.connected_to} ({self.relation})]'
     
     def __repr__(self):
         return f'Interface {self.name}'
@@ -62,7 +63,8 @@ for router in data["router"]:
         ip_address = None
         routing_protocols = interface["routing_protocols"]
         connected_to = interface["connected_to"]
-        list_interfaces.append(Interface(name, ip_address, routing_protocols, connected_to))
+        relation = interface["relation"]
+        list_interfaces.append(Interface(name, ip_address, routing_protocols, connected_to, relation))
 
     list_routers.append(Router(hostname, id, AS, AS_RP, area, neighbors, list_interfaces))
 

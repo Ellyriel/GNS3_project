@@ -34,8 +34,8 @@ def configureinterface(router, file):
         ecriture_fichier(file," no ip address \n")
         if interface.ip_address == None:
             ecriture_fichier(file," shutdown \n")
-        if interface.name == "FastEthernet0/0":
-                ecriture_fichier(file," duplex full \n")
+        #if interface.name == "FastEthernet0/0":
+         #       ecriture_fichier(file," duplex full \n")
         elif interface.name != "Loopback0":
             ecriture_fichier(file," negotiation auto \n")
         if interface.ip_address != None :
