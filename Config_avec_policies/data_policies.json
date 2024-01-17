@@ -119,7 +119,7 @@
             [
                 {
                     "name" : "Loopback0",
-                    "routing_protocols" : ["OSPF","iBGP"],
+                    "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : null
                 },
                 {
