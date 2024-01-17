@@ -33,15 +33,16 @@ class Router :
 # classe définissant une interface d'un routeur
 class Interface :
 
-    def __init__ (self, name, ip_address, routing_protocols, connected_to, relation) :
+    def __init__ (self, name, ip_address, routing_protocols, metric,  connected_to, relation) :
         self.name = name
         self.ip_address = ip_address
         self.routing_protocols = routing_protocols
+        self.metric = metric
         self.connected_to = connected_to
         self.relation = relation
 
     def __str__(self):
-        return f'[Interface {self.name} : IP Address {self.ip_address}, Routing Protocols {self.routing_protocols}, Connected to {self.connected_to} ({self.relation})]'
+        return f'[Interface {self.name} : IP Address {self.ip_address}, Routing Protocols {self.routing_protocols}, Metric : {self.metric}, Connected to {self.connected_to} ({self.relation})]'
     
     def __repr__(self):
         return f'Interface {self.name}'
@@ -62,9 +63,10 @@ for router in data["router"]:
         name = interface["name"]
         ip_address = None
         routing_protocols = interface["routing_protocols"]
+        metric = interface["metric"]
         connected_to = interface["connected_to"]
         relation = interface["relation"]
-        list_interfaces.append(Interface(name, ip_address, routing_protocols, connected_to, relation))
+        list_interfaces.append(Interface(name, ip_address, routing_protocols, metric, connected_to, relation))
 
     list_routers.append(Router(hostname, id, AS, AS_RP, area, neighbors, list_interfaces))
 
@@ -94,6 +96,8 @@ def affichage(list_routers):
             print(f'    {interface}')
         print("------------")
     print(list_routers)
+
+
 
 
 # génération des fichiers de configuration
