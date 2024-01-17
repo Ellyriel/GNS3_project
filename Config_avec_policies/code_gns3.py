@@ -95,8 +95,6 @@ def affichage(list_routers):
         print("------------")
     print(list_routers)
 
-affichage(list_routers)
-
 
 # génération des fichiers de configuration
 def creation_fichier(hostname):
