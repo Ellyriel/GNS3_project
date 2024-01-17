@@ -17,11 +17,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R2"
@@ -45,11 +40,6 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : null
-                },
-                {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
                     "connected_to" : null
                 },
                 {
@@ -84,12 +74,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "ip_address" : null,
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R5"
@@ -118,11 +102,6 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : null
-                },
-                {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
                     "connected_to" : null
                 },
                 {
@@ -162,11 +141,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R3"
@@ -203,12 +177,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "ip_address" : null,
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
                     "connected_to" : "R4"
@@ -237,12 +205,6 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
-                    "connected_to" : null
-                },
-                {
-                    "name" : "FastEthernet0/0",
-                    "ip_address" : null,
-                    "routing_protocols" : null,
                     "connected_to" : null
                 },
                 {
@@ -277,11 +239,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R10"
@@ -313,11 +270,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","eBGP"],
                     "connected_to" : "R7"
@@ -346,11 +298,6 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "connected_to" : null
-                },
-                {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
                     "connected_to" : null
                 },
                 {
@@ -390,11 +337,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R13"
@@ -431,11 +373,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R14"
@@ -467,11 +404,6 @@
                     "connected_to" : null
                 },
                 {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
-                    "connected_to" : null
-                },
-                {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
                     "connected_to" : "R11"
@@ -500,11 +432,6 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "connected_to" : null
-                },
-                {
-                    "name" : "FastEthernet0/0",
-                    "routing_protocols" : null,
                     "connected_to" : null
                 },
                 {
