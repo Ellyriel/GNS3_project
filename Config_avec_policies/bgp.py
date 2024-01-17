@@ -22,7 +22,7 @@ def configureBGP(list_routers, interfaces, hostname, id, AS, file):
     
     texte = " !\n" + " address-family ipv4\n" 
     texte += " exit-address-family\n"+" !\n"
-    
+    print(eBGP)
     texte += " address-family ipv6\n"
 
     ecriture_fichier(file, texte)
@@ -66,7 +66,7 @@ def neighbors_eBGP(list_routers, hostname): #fonctionne
     for i in list_routers:
         if i.hostname != hostname and hostname in i.neighbors:
             for j in i.interfaces:
-                if j.routing_protocols != None and "eBGP" in j.routing_protocols :
+                if j.routing_protocols != None and "eBGP" in j.routing_protocols and j.connected_to == hostname :
                     ip = enleve_masque(j.ip_address)
                     eBGP.append(ip)
                     eBGP.append(i.AS)

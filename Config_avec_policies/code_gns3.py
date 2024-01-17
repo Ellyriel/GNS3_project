@@ -5,7 +5,7 @@ import debut_cfg
 import fin_cfg
 import automatic_ip
 
-with open("data_extent.json") as file:
+with open("./Config_avec_policies/data_policies.json") as file:
     data = json.load(file)
     
 ip_version = int(data["ip_version"])
