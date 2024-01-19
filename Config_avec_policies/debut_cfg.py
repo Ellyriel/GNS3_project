@@ -10,7 +10,7 @@ def recuperer_date_heure():
     date_heure = x.strftime("%H:%M:%S UTC %a %b %d %Y")
     return date_heure
 
-def creation_texte_debut(hostname, ip_version, file):
+def creation_texte_debut(hostname, file):
     '''
     fonction qui crée un texte. Dans notre cas, ce texte sera réécrit plus tard dans le fichier de configuration, et il correspond au début du fichier de configuration
     paramètres : hostname du routeur, version de IP utilisée pour notre réseau
@@ -26,13 +26,7 @@ def creation_texte_debut(hostname, ip_version, file):
 
     ecriture_fichier(file,"no aaa new-model\nno ip icmp rate-limit unreachable\nip cef\n" + "!\n"*6)
 
-    if ip_version == 6 :
-        ecriture_fichier(file, "no ip domain lookup\nipv6 unicast-routing\nipv6 cef\n")
-    elif ip_version == 4 :
-        ecriture_fichier(file, "JE NE SAIS PAS POUR LE MOMENT, A RECHERCHER\n")
-    else :
-        print("ERROR : improper IP version")
-        return
+    ecriture_fichier(file, "no ip domain lookup\nipv6 unicast-routing\nipv6 cef\n")
     
     ecriture_fichier(file,"!\n"*2)
 
