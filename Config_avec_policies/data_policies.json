@@ -22,19 +22,21 @@
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "metric" : null,
+                    "metric" : "10",
                     "connected_to" : "R2",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "5",
                     "connected_to" : "R3",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","eBGP"],
+                    "metric" : null,
                     "connected_to" : "R13",
                     "relation" : "Provider"
                 }
@@ -52,24 +54,28 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R1",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R4",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","eBGP"],
+                    "metric" : null,
                     "connected_to" : "R5",
                     "relation" : "Peer"
                 }
@@ -87,24 +93,28 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","eBGP"],
+                    "metric" : null,
                     "connected_to" : "R10",
                     "relation" : "Client"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "5",
                     "connected_to" : "R1",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "5",
                     "connected_to" : "R4",
                     "relation" : null
                 }
@@ -122,24 +132,28 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","eBGP"],
+                    "metric" : null,
                     "connected_to" : "R7",
                     "relation" : "Client"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R2",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "5",
                     "connected_to" : "R3",
                     "relation" : null
                 }
@@ -157,18 +171,21 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R6",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","eBGP"],
+                    "metric" : null,
                     "connected_to" : "R2",
                     "relation" : "Peer"
                 }
@@ -186,12 +203,14 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R5",
                     "relation" : null
                 }
@@ -209,24 +228,28 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","eBGP"],
+                    "metric" : null,
                     "connected_to" : "R4",
                     "relation" : "Provider"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R8",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R9",
                     "relation" : null
                 }
@@ -244,18 +267,21 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R9",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R7",
                     "relation" : null
                 }
@@ -273,18 +299,21 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R8",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
+                    "metric" : "10",
                     "connected_to" : "R7",
                     "relation" : null
                 }
@@ -302,24 +331,28 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["eBGP"],
+                    "metric" : null,
                     "connected_to" : "R3",
                     "relation" : "Provider"
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R11",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R12",
                     "relation" : null
                 }
@@ -337,18 +370,21 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R12",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R10",
                     "relation" : null
                 }
@@ -366,18 +402,21 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R11",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R10",
                     "relation" : null
                 }
@@ -395,18 +434,21 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R14",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["eBGP"],
+                    "metric" : null,
                     "connected_to" : "R1",
                     "relation" : "Client"
                 }
@@ -424,12 +466,14 @@
                 {
                     "name" : "Loopback0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : null,
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet1/0",
                     "routing_protocols" : ["RIP","iBGP"],
+                    "metric" : null,
                     "connected_to" : "R13",
                     "relation" : null
                 }
