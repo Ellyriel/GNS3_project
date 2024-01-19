@@ -29,7 +29,7 @@
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "metric" : "40",
+                    "metric" : "5",
                     "connected_to" : "R3",
                     "relation" : null
                 },
@@ -107,14 +107,14 @@
                 {
                     "name" : "GigabitEthernet2/0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "metric" : "40",
+                    "metric" : "5",
                     "connected_to" : "R1",
                     "relation" : null
                 },
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "metric" : "40",
+                    "metric" : "5",
                     "connected_to" : "R4",
                     "relation" : null
                 }
@@ -153,7 +153,7 @@
                 {
                     "name" : "GigabitEthernet3/0",
                     "routing_protocols" : ["OSPF","iBGP"],
-                    "metric" : "40",
+                    "metric" : "5",
                     "connected_to" : "R3",
                     "relation" : null
                 }
