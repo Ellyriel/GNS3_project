@@ -5,7 +5,7 @@ import debut_cfg
 import fin_cfg
 import automatic_ip
 
-with open("data_policies.json") as file:
+with open("Config_avec_policies\data_policies.json") as file:
     data = json.load(file)
     
 ip_version = int(data["ip_version"])
@@ -48,7 +48,7 @@ class Interface :
 
 
 # liste des route-map à mettre en place
-liste_rm = ["route-map client-in", "route-map peer-in", "route-map provider-in", "route-map client-out", "route-map peer-out", "route-map provider-out"]
+liste_rm = ["route-map client-in", "route-map peer-in", "route-map provider-in", "route-map iBGP-map-in", "route-map client-out", "route-map peer-out", "route-map provider-out", "route-map iBGP-map-out"]
 
 # mise en forme des données de chacun des routeurs
 list_routers = []

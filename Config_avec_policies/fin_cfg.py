@@ -30,26 +30,40 @@ def creation_texte_fin(hostname, id, as_rp, list_interfaces, liste_rm, file):
     ecriture_fichier(file, "!\n"*2)
 
     for name in liste_rm :
-        ecriture_fichier(file, name + " permit 100\n")
-        if "in" in name :
-            if "client" in name :
-                ecriture_fichier(file, " set local-preference 200\n")
-                ecriture_fichier(file, " set community 10\n")
-            elif "peer" in name :
-                ecriture_fichier(file, " set local-preference 100\n")
-                ecriture_fichier(file, " set community 20\n")
-            elif "provider" in name :
-                ecriture_fichier(file, " set local-preference 50\n")
-                ecriture_fichier(file, " set community 30\n")    
-        elif "out" in name :
-            if "client" in name :
-                ecriture_fichier(file, " match community 200\n")
-            if "peer" in name :
-                ecriture_fichier(file, " match community 100\n")
-            elif "provider" in name :
-                ecriture_fichier(file, " match community 50\n")
+        if name != "route-map iBGP-map-in" :
+            ecriture_fichier(file, name + " permit 100\n")
+            if "in" in name :
+                if "client" in name :
+                    ecriture_fichier(file, " set local-preference 200\n")
+                    ecriture_fichier(file, " set community 10\n")
+                elif "peer" in name :
+                    ecriture_fichier(file, " set local-preference 100\n")
+                    ecriture_fichier(file, " set community 20\n")
+                elif "provider" in name :
+                    ecriture_fichier(file, " set local-preference 50\n")
+                    ecriture_fichier(file, " set community 30\n")    
+            elif "out" in name :
+                if "client" in name :
+                    ecriture_fichier(file, " match community 200\n")
+                if "peer" in name :
+                    ecriture_fichier(file, " match community 100\n")
+                elif "provider" in name :
+                    ecriture_fichier(file, " match community 50\n")
+                elif "iBGP" in name :
+                    ecriture_fichier(file, " match community 200\n")
 
-        ecriture_fichier(file,"!\n")
+            ecriture_fichier(file,"!\n")
+        else :
+            ecriture_fichier(file, name + " permit 100\n")
+            ecriture_fichier(file, " match community 200\n")
+            ecriture_fichier(file, " set local-preference 200\n!\n")
+            ecriture_fichier(file, name + " permit 200\n")
+            ecriture_fichier(file, " match community 100\n")
+            ecriture_fichier(file, " set local-preference 100\n!\n")
+            ecriture_fichier(file, name + " permit 300\n")
+            ecriture_fichier(file, " match community 50\n")
+            ecriture_fichier(file, " set local-preference 50\n!\n")
+
 
     ecriture_fichier(file, "!\n"*3 + "control-plane\n" + "!\n"*2)
 

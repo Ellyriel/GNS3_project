@@ -32,22 +32,28 @@ def configureBGP(list_routers, interfaces, hostname, id, AS, liste_rm, file):
             ecriture_fichier(file,"  network " + u + " route-map client-in\n")
     for i in iBGP:
         ecriture_fichier(file,"  neighbor " + i + " activate\n")
+        ecriture_fichier(file,"  neighbor " + i + " send-community \n")
+        ecriture_fichier(file,"  neighbor " + i + " route-map " + liste_rm[3] + " in\n")
+        ecriture_fichier(file,"  neighbor " + i + " route-map " + liste_rm[7] + " out\n")
     for j in range (0,len(eBGP),2):
         ecriture_fichier(file,"  neighbor " + eBGP[j] + " activate\n")
+
     for interface in interfaces :
         if interface.routing_protocols != None and "eBGP" in interface.routing_protocols:
             if interface.relation == "Client" :
                 ecriture_fichier(file, "  neighbor " + eBGP[j] + " send-community" +"\n")
                 ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[0] +" in\n")
-                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[3] +" out\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[4] +" out\n")
             elif interface.relation == "Peer" :
                 ecriture_fichier(file, "  neighbor " + eBGP[j] + " send-community" +"\n")
                 ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[1] +" in\n")
-                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[4] +" out\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[5] +" out\n")
             elif interface.relation == "Provider" :
                 ecriture_fichier(file, "  neighbor " + eBGP[j] + " send-community" +"\n")
                 ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[2] +" in\n")
-                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[5] +" out\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[6] +" out\n")
+    
+
             
 
     ecriture_fichier(file," exit-address-family\n"+"!\n")
