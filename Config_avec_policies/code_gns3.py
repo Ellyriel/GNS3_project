@@ -5,7 +5,7 @@ import debut_cfg
 import fin_cfg
 import automatic_ip
 
-with open("data_policies.json") as file:
+with open("Config_avec_policies\data_policies.json") as file:
     data = json.load(file)
     
 ip_version = int(data["ip_version"])
@@ -47,6 +47,9 @@ class Interface :
     def __repr__(self):
         return f'Interface {self.name}'
 
+
+# liste des route-map à mettre en place
+liste_rm = ["route-map client-in", "route-map peer-in", "route-map provider-in", "route-map iBGP-map-in", "route-map client-out", "route-map peer-out", "route-map provider-out", "route-map iBGP-map-out"]
 
 # mise en forme des données de chacun des routeurs
 list_routers = []
@@ -108,8 +111,8 @@ def creation_fichier(hostname):
 
 for router in list_routers:
     fichier_config = creation_fichier(router.hostname)
-    debut_cfg.creation_texte_debut(router.hostname, ip_version, fichier_config)
+    debut_cfg.creation_texte_debut(router.hostname, fichier_config)
     interface_function.configureinterface(router, fichier_config)
-    bgp.configureBGP(list_routers,router.interfaces, router.hostname, router.id, router.AS, fichier_config)
-    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, router.interfaces, ip_version, fichier_config)
+    bgp.configureBGP(list_routers,router.interfaces, router.hostname, router.id, router.AS, liste_rm, fichier_config)
+    fin_cfg.creation_texte_fin(router.hostname, router.id, router.AS_RP, router.interfaces, liste_rm, fichier_config)
 

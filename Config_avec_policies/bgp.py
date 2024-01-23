@@ -1,4 +1,4 @@
-def configureBGP(list_routers, interfaces, hostname, id, AS, file):
+def configureBGP(list_routers, interfaces, hostname, id, AS, liste_rm, file):
     # rédige la partie configuration du protocole BGP dans le fichier file
 
     texte = "router bgp " + str(AS) + "\n"
@@ -19,7 +19,7 @@ def configureBGP(list_routers, interfaces, hostname, id, AS, file):
             eBGP = neighbors_eBGP(list_routers, hostname)
             for address in range(0, len(eBGP)-1, 2) :
                 ecriture_fichier(file, " neighbor " + eBGP[address] + " remote-as " + str(eBGP[address+1]) + "\n")
-    
+
     texte = " !\n" + " address-family ipv4\n" 
     texte += " exit-address-family\n"+" !\n"
     texte += " address-family ipv6\n"
@@ -29,11 +29,32 @@ def configureBGP(list_routers, interfaces, hostname, id, AS, file):
     if eBGP != [] :
         prefixes = networks(routes_AS)
         for u in prefixes : 
-            ecriture_fichier(file,"  network " + u + "\n")
+            ecriture_fichier(file,"  network " + u + " route-map client-in\n")
     for i in iBGP:
         ecriture_fichier(file,"  neighbor " + i + " activate\n")
+        ecriture_fichier(file,"  neighbor " + i + " send-community \n")
+        ecriture_fichier(file,"  neighbor " + i + " route-map " + liste_rm[3] + " in\n")
+        ecriture_fichier(file,"  neighbor " + i + " route-map " + liste_rm[7] + " out\n")
     for j in range (0,len(eBGP),2):
         ecriture_fichier(file,"  neighbor " + eBGP[j] + " activate\n")
+
+    for interface in interfaces :
+        if interface.routing_protocols != None and "eBGP" in interface.routing_protocols:
+            if interface.relation == "Client" :
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " send-community" +"\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[0] +" in\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[4] +" out\n")
+            elif interface.relation == "Peer" :
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " send-community" +"\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[1] +" in\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[5] +" out\n")
+            elif interface.relation == "Provider" :
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " send-community" +"\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[2] +" in\n")
+                ecriture_fichier(file, "  neighbor " + eBGP[j] + " " + liste_rm[6] +" out\n")
+    
+
+            
 
     ecriture_fichier(file," exit-address-family\n"+"!\n")
 
