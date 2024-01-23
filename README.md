@@ -9,9 +9,9 @@ Dans le dossier config-de-base, vous pourrez retrouver une configuration de 14 r
 Tous les routeurs peuvent se ping entre eux. 
 eBGP, iBGP, OSPF et RIP sont implémentés. 
 
-## Configuration avec Policies
+## Configuration avec BGP Policies et OSPF Metric
 
-Dans le dossier config-avec-policies, vous retrouverez une configuration à 14 routeurs répartis dans 5 AS. Grâce à cette architecture, nous avons pu simuler un AS principal (AS 100) qui possède un provider (AS 500), deux AS client (AS 300 et 400) et un AS peer (AS 200). 
+Dans le dossier config-avec-policies, vous retrouverez une configuration à 14 routeurs répartis dans 5 AS. Grâce à cette architecture, nous avons pu simuler un AS principal (AS 100) qui possède un provider (AS 500), deux AS client (AS 300 et 400) et un AS peer (AS 200). Nous y avons également appliqué des changements de métriques OSPF.
 
 Chaque dossier contient un zip avec le fichier GNS3 correspond à la configuration décrite plus haut ainsi qu'avec les routeurs qui contienent les fichiers configs générés avec notre code.
 
@@ -20,7 +20,7 @@ Chaque dossier contient un zip avec le fichier GNS3 correspond à la configurati
 Dans chacun des dossiers, on retrouve les fichiers suivants : 
 *  code_gns3 : Il s'agit du programme qui définit les classes Router et Interfaces, qui crée les listes de routeurs et les listes des interfaces et qui contient une fonction pour générer les fichiers de configuration (creation_fichier). Il suffit de lancer ce fichier pour générer les fichiers de configuration.
 
-*  automatic_ip : ce fichier contient les fonctions nécéssaires pour générer une addresse ip de la forme : 2001 : nb_AS : nb_AS_2 : R1R2 :: R1 avec nb_AS le numéro d'AS le plus petit, nb_AS_2 le numéro d'AS de l'autre routeur, R1R2 les numéros des deux routeurs connectés (généré par la fonction num_ip) et R1 numéro du routeur sur lequel on configure l'@ IP.
+*  automatic_ip : ce fichier contient les fonctions nécéssaires pour générer une addresse ip de la forme : 2001 : nb_AS : nb_AS_2 : R1R2 :: R avec nb_AS le numéro d'AS le plus petit, nb_AS_2 le numéro d'AS de l'autre routeur, R1R2 les numéros des deux routeurs connectés avec R1 le numéro le plus petit des routeurs (généré par la fonction num_ip) et R numéro du routeur sur lequel on configure l'@ IP. 
   
 *  debut_cfg et fin_cfg : les fichiers qui comporte respectivement le début du texte de configuration et la fin du texte de configuration qui contient notamment la configuration de l'interface passive pour OSPF et la "redistribute connected" pour rip. Notons que le fichier fin_cfg est différent dans le dossier config_avec_policies puisqu'il contient le texte pour configurer les routes map, les communities et les local-pref.
 
