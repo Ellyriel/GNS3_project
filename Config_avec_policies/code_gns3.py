@@ -4,6 +4,7 @@ import interface_function
 import debut_cfg
 import fin_cfg
 import automatic_ip
+import os
 
 with open("Config_avec_policies\data_policies.json") as file:
     data = json.load(file)
@@ -106,8 +107,16 @@ def affichage(list_routers):
 # génération des fichiers de configuration
 def creation_fichier(hostname):
     name = "i"+ hostname[1:] + "_startup-config.cfg"
-    f = open(name,"w")
-    return f
+    road = os.path.join('./Config_avec_policies/project_bgp_policies/project_bgp_policies/project-files/dynamips')
+    dossiers = [f for f in os.listdir(road)]
+    i = 0
+    while i < len(dossiers) :
+        road_dossier = os.path.join(road + '/' + dossiers[i] +'/configs')
+        fichier = os.listdir(road_dossier)
+        if name in fichier:
+            f = open(road_dossier + '/' + name,"w")
+            return f
+        i += 1        
 
 for router in list_routers:
     fichier_config = creation_fichier(router.hostname)
