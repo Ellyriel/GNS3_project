@@ -4,7 +4,7 @@ Projet 3TC GNS3
 Membres du groupe : Louise Marc 3TC2, Anne-Gaëlle Mauger 3TC2, Nelly Nguyen 3TC2
 
 Chaque dossier contient un zip avec le fichier GNS3 correspond à la configuration décrite plus haut ainsi qu'avec les routeurs qui contienent les fichiers configs générés avec notre code.
-Chaque dossier zipé est à extraire dans le dossier où il se situe.
+Chaque dossier zipé est à extraire dans le dossier où il se situe, afin que le drag & drop bot fonctionne correctement. Celui-ci est d'ailleurs présent dans les deux configurations.
 
 ## Configuration de base
 
