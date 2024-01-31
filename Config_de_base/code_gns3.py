@@ -99,7 +99,7 @@ def affichage(list_routers):
 
 def creation_fichier(hostname):
     name = "i"+ hostname[1:] + "_startup-config.cfg"
-    road = os.path.join('./Config_avec_policies/Project_extend/Project_extend/project-files/dynamips')
+    road = os.path.join('./Config_de_base/Project_extend/Project_extend/project-files/dynamips')
     dossiers = [f for f in os.listdir(road)]
     i = 0
     while i < len(dossiers) :
