@@ -8,7 +8,7 @@
             "id" : "1.1.1.1",
             "AS" : "100",
             "AS_RP" : "OSPF",
-            "area" : "10",
+            "area" : "0",
             "neighbors":["R2","R3","R13"],
             "interfaces" : 
             [
@@ -47,7 +47,7 @@
             "id" : "2.2.2.2",
             "AS" : "100",
             "AS_RP" : "OSPF",
-            "area" : "10",
+            "area" : "0",
             "neighbors":["R1","R5","R4"],
             "interfaces" : 
             [
@@ -86,7 +86,7 @@
             "id" : "3.3.3.3",
             "AS" : "100",
             "AS_RP" : "OSPF",
-            "area" : "10",
+            "area" : "0",
             "neighbors":["R1","R4","R10"],
             "interfaces" : 
             [
@@ -125,7 +125,7 @@
             "id" : "4.4.4.4",
             "AS" : "100",
             "AS_RP" : "OSPF",
-            "area" : "10",
+            "area" : "0",
             "neighbors":["R2","R3","R7"],
             "interfaces" : 
             [
@@ -164,7 +164,7 @@
             "id" : "5.5.5.5",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "20",
+            "area" : "0",
             "neighbors":["R2","R6"],
             "interfaces" : 
             [
@@ -196,7 +196,7 @@
             "id" : "6.6.6.6",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "20",
+            "area" : "0",
             "neighbors":["R5"],
             "interfaces" : 
             [
@@ -221,7 +221,7 @@
             "id" : "7.7.7.7",
             "AS" : "300",
             "AS_RP" : "OSPF",
-            "area" : "30",
+            "area" : "0",
             "neighbors":["R4","R8","R9"],
             "interfaces" : 
             [
@@ -260,7 +260,7 @@
             "id" : "8.8.8.8",
             "AS" : "300",
             "AS_RP" : "OSPF",
-            "area" : "30",
+            "area" : "0",
             "neighbors":["R7","R9"],
             "interfaces" : 
             [
@@ -292,7 +292,7 @@
             "id" : "9.9.9.9",
             "AS" : "300",
             "AS_RP" : "OSPF",
-            "area" : "30",
+            "area" : "0",
             "neighbors":["R7","R8"],
             "interfaces" : 
             [

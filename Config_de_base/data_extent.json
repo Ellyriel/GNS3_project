@@ -229,7 +229,7 @@
             "id" : "8.8.8.8",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R6","R10","R11"],
             "interfaces" : 
             [
@@ -260,7 +260,7 @@
             "id" : "9.9.9.9",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R7","R10","R11"],
             "interfaces" : 
             [
@@ -291,7 +291,7 @@
             "id" : "10.10.10.10",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R8","R9","R11","R12"],
             "interfaces" : 
             [
@@ -327,7 +327,7 @@
             "id" : "11.11.11.11",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R8","R9","R10","R13"],
             "interfaces" : 
             [
@@ -363,7 +363,7 @@
             "id" : "12.12.12.12",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R10","R13","R14"],
             "interfaces" : 
             [
@@ -394,7 +394,7 @@
             "id" : "13.13.13.13",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R11","R12","R14"],
             "interfaces" : 
             [
@@ -425,7 +425,7 @@
             "id" : "14.14.14.14",
             "AS" : "200",
             "AS_RP" : "OSPF",
-            "area" : "38",
+            "area" : "0",
             "neighbors":["R12","R13"],
             "interfaces" : 
             [
