@@ -3,8 +3,12 @@ Projet 3TC GNS3
 
 Membres du groupe : Louise Marc 3TC2, Anne-Gaëlle Mauger 3TC2, Nelly Nguyen 3TC2
 
-Chaque dossier contient un zip avec le fichier GNS3 correspond à la configuration décrite plus haut ainsi qu'avec les routeurs qui contienent les fichiers configs générés avec notre code.
-Chaque dossier zipé est à extraire dans le dossier où il se situe, afin que le drag & drop bot fonctionne correctement. Celui-ci est d'ailleurs présent dans les deux configurations.
+**ATTENTION**
+
+Pour le bon fonctionnement du code, veuillez vous placez dans le répertoire GNS3_project avant d'exécuter les programmes présents dans chacun des fichiers *code_gns3.py*. Si vous êtes dans les répertoires config-de-base ou config-avec-policies, les chemins relatifs pour accéder aux fichiers json ne seront plus corrects.
+
+De plus, chaque dossier contient un zip avec le fichier GNS3 correspondant à une des configurations décrites plus bas ainsi que les dossiers des routeurs, qui contiennent les fichiers configs générés avec notre code.
+Chaque dossier zipé est à extraire **dans le dossier où il se situe** (c'est-à-dire dans config-de-base ou config-avec-policies), afin que le drag & drop bot fonctionne correctement. Celui-ci est d'ailleurs présent dans les deux configurations.
 
 ## Configuration de base
 
